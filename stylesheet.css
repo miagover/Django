@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'welcome';
+    src: url('hvd_fonts_-_brandontext-black-webfont.woff2') format('woff2'),
+         url('hvd_fonts_-_brandontext-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+    font-family: 'sans-serif';
+}

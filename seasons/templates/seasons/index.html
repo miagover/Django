@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+        }
+        h1 {
+            font-family: Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 100px;
+            color:#38bf49;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            margin-right: auto;
+            margin-left: auto;
+            font-family: Geneva;
+        }
+        td, th {
+            padding-left: 25px;
+            padding-right: 25px;
+            font-size: 25px;
+            padding-top: 10px;
+        }
+    </style>
+    <title>The Good Place ✅</title>
+</head>
+<body>
+    <h1>Welcome! Everything Is Fine.</h1>
+    <table>
+        <tr>
+            <th></th>
+            <th># of Episodes</th>
+            <th>Episode 1 Air Date</th>
+        </tr>
+        {% for season in seasonsList %}
+        <tr>
+            <td><a href="/seasons/{{ forloop.counter }}">{{ season.title }}</a></td>
+            <td>{{ season.episodes }}</td>
+            <td>{{ season.airDate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

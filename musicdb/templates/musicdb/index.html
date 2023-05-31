@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Django and mySQL</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      text-align: center;
+    }
+    table {
+      margin: auto;
+    }
+    h1 {
+      padding-bottom: 10px;
+    }
+    th, td {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .bg {
+      background-color:rgb(245, 220, 233);
+    }
+  </style>
+</head>
+<body>
+<div>
+<h1>Applied CS 6/7 Music Database</h1>
+<table>
+      <tr>
+        <th><a href="id">Artist ID</a></th>
+        <th><a href="name">Artist Name</a></th>
+        <th><a href="formed">Artist Formed</a></th>
+      </tr>
+      {% for artist in artists %}
+      {% if forloop.counter|divisibleby:2 %}  
+        <tr>
+      {% else %}
+        <tr class="bg">
+      {% endif %}
+          <td><a href="{{ artist.0 }}">{{ artist.0 }}</a></td>
+          {% if artist.3 %}  
+            <td><a href="{{ artist.3 }}">{{ artist.1 }}</a></td>
+          {% else %}
+            <td>{{ artist.1 }}</td>
+          {% endif %}       
+          <td>{{ artist.2 }}</td>  
+        </tr>       
+      {% endfor %} 
+</table>  
+</div>
+</body>
+</html>

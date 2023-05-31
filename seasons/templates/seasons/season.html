@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Good Place: {{ seasonName }}</title>
+    <style>
+        h1, h3 {
+            font-family: Trebuchet MS, Verdana, Geneva, Tahoma, sans-serif;
+        }
+        li {
+            font-family: Geneva;
+            padding-left: 0%;
+        }
+        /* body {
+            text-align: center;
+        } */
+    </style>
+</head>
+<body>
+    <h1>{{ seasonName }}</h1>
+    <h3>Best...</h3>
+    <ul>
+        <li>Episode: {{ info.episode }}</li>
+        <li>Character: {{ info.character }}</li>
+        <li>Relationship: {{ info.relationship }}</li>
+    </ul>
+</body>
+</html>

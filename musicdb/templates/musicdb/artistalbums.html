@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>{{ albums.0.2 }}</title>
+    <style>
+      body {
+      text-align: center;
+      }
+      table {
+        margin: auto;
+      }
+      h1 {
+        padding-bottom: 10px;
+      }
+      th, td {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .bg {
+        background-color:rgb(245, 220, 233);
+      }
+    </style>
+</head>
+<body>
+    <h1>Discography: {{ albums.0.2 }}</h1>
+    <table>
+        <tr>
+          <th>Artist ID</th>
+          <th>Album ID</th>
+          <th>Artist Name</th>
+          <th>Album Name</th>
+          <th>Year Released</th>
+        </tr>
+        {% for album in albums %}  
+        {% if forloop.counter|divisibleby:2 %}  
+          <tr>
+        {% else %}
+          <tr class="bg">
+        {% endif %}
+            <td>{{ album.0 }}</td>
+            <td>{{ album.1 }}</td>       
+            <td>{{ album.2 }}</td>
+            <td>{{ album.3 }}</td> 
+            <td>{{ album.4 }}</td>   
+          </tr>       
+        {% endfor %} 
+  </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'chatbot/base.html' %}
+
+{% block content %}
+    <script>
+        function setPlaceholder() {
+            if (document.getElementById("model").value == "chat") {
+                document.getElementsByName("question")[0].placeholder = "What would you like to ask?";
+                document.getElementById("size").hidden = true;
+            }
+            else {
+                document.getElementsByName("question")[0].placeholder = "What would you like me to draw?";
+                document.getElementById("size").hidden = false;
+            }
+        }
+    </script>
+    <h1>Hello from your friendly new AI Overlord... chatGPT</h1>
+    
+    {% if userQuestion %}
+    <h2>Question: {{ userQuestion }}</h2>
+    {% endif %}
+    <div class="card">
+        <div class="card-header">ChatGPT Response:</div>
+        <div class="card-body">Placeholder</div>
+    </div><br>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <label for="model">Select OpenAI Model: </label>
+        <select id="model" name="model" onchange="setPlaceholder();">
+            <option value="chat">Chat</option>
+            <option value="draw">Draw</option>
+        </select>
+        <select id="size" name="size" hidden="true">
+            <option value="256">256x256</option>
+            <option value="512">512x512</option>
+            <option value="1024">1024x1024</option>
+        </select>
+        <br><br>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="question" id="question" placeholder="What would you like to ask?"> 
+        </div>
+        <button type="submit" class="btn btn-light">submit question</button>
+    </form>
+{% endblock %}
